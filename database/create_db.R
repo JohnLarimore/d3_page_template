@@ -1,12 +1,17 @@
 library(RMariaDB)
-dbname <- "test_db"
+dbname <- "postgres"
 username <- "testtable_admin"
 password <- "testtable_admin"
 host <- "localhost"
-con <- dbConnect(RMariaDB::MariaDB(), dbname=dbname, username=username, password=password, host=host)
-sql <- "SHOW TABLES"
+con <- dbConnect(dbDriver("PostgreSQL"), 
+	dbname=dbname, 
+	user=username, 
+	password=password, 
+	host=host)
+sql <- "SELECT * FROM testtable;"
 res <- dbSendQuery(con, sql)
 tables <- dbFetch(res)
 dbClearResult(res)
-print(tables)
 dbDisconnect(con)
+print(tables)
+print(paste0(tables[1,3], tables[2,3]))
