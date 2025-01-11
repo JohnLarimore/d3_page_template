@@ -4,11 +4,12 @@ define('DEV', true);
 //define("ROOT_FOLDER", 'public');
 
 //Database settings
-$type = 'mysql';
+$type = 'pgsql';
 $server = 'localhost';
-$db = 'test_db';
-$port = 3306;
-$charset = 'utf8mb4';
-$username = 'testtable_admin';
-$password = 'testtable_admin';
-$dsn = "$type:host=$server;dbname=$db;port=$port;charset=$charset";
+$db = 'postgres';
+$port = 5432;
+#$charset = 'utf8mb4';
+$username = 'mtcars_user';
+$password = 'mtcars_user';
+#$dsn = "$type:host=$server;dbname=$db;port=$port;charset=$charset";
+$dsn = "$type:host=$server;dbname=$db;port=$port";

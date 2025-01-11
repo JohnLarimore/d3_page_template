@@ -1,3 +1,26 @@
 h1 {
 	text-align: center;
 }
+
+th {
+	text-align: left;
+	border: 1px solid black;
+}
+
+table {
+	border: 3px double black;
+	border-collapse: collapse;
+}
+
+td {
+	border: 1px solid black;
+	text-align: center;
+}
+
+tfoot td {
+	font-weight: bold;
+}
+
+th, td {
+	padding: 1px;
+}

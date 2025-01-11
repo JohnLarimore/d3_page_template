@@ -1,8 +1,16 @@
-DROP TABLE IF EXISTS testtable;
-CREATE TABLE testtable (
+DROP TABLE IF EXISTS mtcars;
+CREATE TABLE mtcars (
 	id SERIAL PRIMARY KEY, 
-	category TEXT NOT NULL, 
-	value text NOT NULL
+	mpg numeric,
+	cyl NUMERIC,
+	disp NUMERIC,
+	hp	NUMERIC,
+	drat NUMERIC,
+	wt NUMERIC,
+	qsec NUMERIC,
+	vs NUMERIC,
+	am NUMERIC,
+	gear NUMERIC,
+	carb NUMERIC,
+	makemodel TEXT
 );
-INSERT INTO testtable VALUES (1, 'Start', 'Now is the time for all good men ');
-INSERT INTO testtable VALUES (2, 'End', 'to come to the aid of their country.');

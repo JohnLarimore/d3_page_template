@@ -1,17 +1,26 @@
-library(RMariaDB)
+library(RPostgreSQL)
+library(DBI)	
 dbname <- "postgres"
-username <- "testtable_admin"
-password <- "testtable_admin"
+username <- "mtcars_admin"
+password <- "mtcars_admin"
 host <- "localhost"
 con <- dbConnect(dbDriver("PostgreSQL"), 
 	dbname=dbname, 
 	user=username, 
 	password=password, 
 	host=host)
-sql <- "SELECT * FROM testtable;"
-res <- dbSendQuery(con, sql)
-tables <- dbFetch(res)
-dbClearResult(res)
+clean_mtcars <- cbind(mtcars, rownames(mtcars))
+len <- length(clean_mtcars[,1])
+for(i in 1:len){
+	sql <- paste0("INSERT INTO mtcars VALUES (", i)
+	for(j in 1:12){
+		if(j==12){
+			sql <- paste0(sql, ", '", clean_mtcars[i, j], "')")
+		} else {
+			sql <- paste0(sql, ", ", clean_mtcars[i, j])
+		}
+		
+	}
+	dbExecute(con, sql)
+	}
 dbDisconnect(con)
-print(tables)
-print(paste0(tables[1,3], tables[2,3]))

@@ -1,5 +1,4 @@
 <?php
-//echo 'in here'; 
 define('APP_ROOT', dirname(__FILE__, 2));
 require APP_ROOT.'/config/config.php';
 spl_autoload_register(function($class){

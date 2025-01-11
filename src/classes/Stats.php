@@ -1,12 +1,12 @@
 <?php
-class Todos
+class Stats
 {
 	protected $db;
 	public function __construct(Database $db){
 		$this->db = $db;
 	}
-	public function getAll(){
-		$sql = "SELECT * FROM todos;";
+	public function ls(){
+		$sql = "SELECT * FROM mtcars;";
 		return $this->db->runSQL($sql)->fetchAll();
 	}
 }
